@@ -16,16 +16,16 @@ import { singleReducer } from './SingleProducts/SingleProduct.reducer'
 import {authReducerfunc} from './Auth/auth.reducer';
  import {adminAllData} from './admin_data/admin.reducer'
 import { adminAuthReducer } from './admin_auth/admin.reducer'
-import { wishReducer } from './Wishlist/Wishlist.reducer'
+import { userAddreducer } from './AddUser/User.reducer'
 
 const rootReducer = combineReducers({
     cart:cartReducer,
     order:orderReducer,
-    wishlist:wishReducer,
     singleProduct: singleReducer,
     adminAuth:adminAuthReducer,
     authUser:authReducerfunc,
-    adminAll:adminAllData
+    adminAll:adminAllData,
+    userAllData:userAddreducer
 })
 
 const composeEnhancer = window._REDUX_DEVTOOLS_EXTENSION_COMPOSE_ || compose;

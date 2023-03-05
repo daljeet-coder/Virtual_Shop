@@ -11,29 +11,33 @@ import { Button } from "@chakra-ui/react";
 const Products = () => {
   const { Categories } = useParams();
   const [value, setValue] = useState([]);
+  const [sort, setSort] = useState(Categories);
   const navigate = useNavigate();
   const [price, setPrice] = useState("");
   const [order, setOrder] = useState("");
+
   const getSimilarData = async () => {
     try {
       const res = await fetch(
-        `https://lackadaisical-volcano-larch.glitch.me/data/?q=${Categories}&_sort=${price}&_order=${order}`
+        `https://lackadaisical-volcano-larch.glitch.me/data/?q=${sort}&_sort=${price}&_order=${order}`
       );
       const datas = await res.json();
+    //   console.log(datas);
       setValue(datas);
     } catch (error) {
-      console.log("e", error);
+    //   console.log("e", error);
     }
   };
+//   console.log("line22", Categories);
   useEffect(() => {
     getSimilarData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [Categories, price]);
+  }, [Categories, sort, price, order]);
 
   return (
     <div>
       <Navbar />
       <h1 className="heading">Products - {value.length}</h1>
+
       <div
         style={{
           display: "flex",
@@ -57,7 +61,7 @@ const Products = () => {
         </div>
       </div>
       <div className="main_container">
-        <div className="LEFTSIDERFILTER">
+        <div>
           <LeftSideFilter setPrice={setPrice} setOrder={setOrder} />
         </div>
         <div className="proMainDiv">

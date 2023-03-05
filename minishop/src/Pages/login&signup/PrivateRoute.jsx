@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
-import DLogin from "../../DemoPagesBySachin/DLogin";
+import Login from "./Login";
 
 const PrivateRoute = ({ children }) => {
   const isauth = useSelector((val) => val.authUser.isauth);
@@ -18,8 +17,8 @@ const PrivateRoute = ({ children }) => {
       description: "Please login first.",
       isClosable: true,
     });
-    nav('/DLogin') 
-    return <DLogin/>
+    nav('/Login') 
+    return <Login/>
   }
 };
 

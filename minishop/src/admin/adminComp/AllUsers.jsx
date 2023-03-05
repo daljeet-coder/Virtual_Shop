@@ -23,10 +23,6 @@ const AdmnUsers = () => {
   const toggleshow=()=>{}
   const sloading=false
   const catagory = ['user1']
-
-
-
-
   return (
     <>
      <AdminNav handleCategory={handleCategory} catagory={catagory} />

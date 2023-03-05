@@ -6,7 +6,6 @@ import {
 } from "./Order.actionTypes"
 
 import { deleteOrder, getOrderAPI } from "./Order.api"
-
 export const orderActions = () => async(dispatch) => {
     dispatch({type: ORDER_GET_LOADING});
     try{
@@ -19,6 +18,6 @@ export const orderActions = () => async(dispatch) => {
 }
 
 export const cancelOrder = (id) => async(dispatch) => {
-    let data1 =  await deleteOrder(id);
+    await deleteOrder(id);
     dispatch({type:ORDER_REMOVE,payload:id})
 }
